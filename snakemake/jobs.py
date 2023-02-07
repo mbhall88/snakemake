@@ -999,14 +999,13 @@ class Job(AbstractJob):
             "type": "single",
             "rule": self.rule.name,
             "local": self.is_local,
-            "input": self.input,
-            "output": self.output,
             "wildcards": self.wildcards_dict,
             "params": params,
             "log": self.log,
             "threads": self.threads,
             "resources": resources,
             "jobid": self.dag.jobid(self),
+            "attempt": self.attempt,
         }
         properties.update(aux_properties)
 
@@ -1432,11 +1431,10 @@ class GroupJob(AbstractJob):
             "type": "group",
             "groupid": self.groupid,
             "local": self.is_local,
-            "input": self.input,
-            "output": self.output,
             "threads": self.threads,
             "resources": resources,
             "jobid": self.jobid,
+            "attempt": self.attempt,
         }
         properties.update(aux_properties)
 
